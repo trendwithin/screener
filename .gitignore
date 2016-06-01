@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore byebug
+/.byebug_history
+
+# Ignore downloaded files
+/lib/zacks_downloads

@@ -14,6 +14,7 @@ gem 'mechanize', '~> 2.7', '>= 2.7.4'
 group :development, :test do
   gem 'byebug'
   gem 'vcr', '~> 3.0', '>= 3.0.3'
+  gem 'webmock', '~> 2.0', '>= 2.0.3'
 end
 
 group :development do
