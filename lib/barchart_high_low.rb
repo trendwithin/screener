@@ -31,6 +31,16 @@ module Barchart
       data_conversion(data_point)
     end
 
+    def six_month_high(page)
+      data_point = page.search('*[@id="divContent"]/div[3]/table/tr[6]/td[2]/a').text
+      data_conversion(data_point)
+    end
+
+    def six_month_low(page)
+      data_point = page.search('*[@id="divContent"]/div[3]/table/tr[7]/td[2]/a').text
+      data_conversion(data_point)
+    end
+
     def data_conversion(data)
       data =~ /^\d+$/ ? data : '0'
     end
