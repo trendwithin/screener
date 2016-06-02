@@ -24,12 +24,15 @@ module FetchZacks
     end
 
     def insert_zacks_data
-      CSV.foreach('lib/zacks_downloads/todays_earnings.xls', col_sep: "\t", headers: true, header_converters:  lambda { |h| h.try(:downcase) }) do |row|
+      clean_headers = lambda do |header|
+        return 'price_pct_change' if header == 'Price % Change'
+        header.gsub!(/\s/, '_')
+        return header.downcase!
+      end
+
+      CSV.foreach('lib/zacks_downloads/todays_earnings.xls', col_sep: "\t", headers: true, header_converters: clean_headers) do |row|
         hash = row.to_hash
         hash.delete(nil)
-        hash['report_time'] = hash.delete('report time')
-        hash['price_pct_change'] = hash.delete('price % change')
-        hash['current_price'] = hash.delete('current price')
         Zack.create!(hash)
       end
     end
