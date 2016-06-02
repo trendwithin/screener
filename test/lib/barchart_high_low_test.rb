@@ -20,9 +20,9 @@ module Barchart
 
     def test_unexpected_data_returns_0
       test_agent = Barchart::HighLow.new
-      source = %w[ 'NA' 'N/A' '' ]
+      source = %w( 'NA' 'N/A' '' )
       source.each do |elem|
-        assert_equal '0', test_agent.data_conversion(source)
+        assert_equal '0', test_agent.data_conversion(elem)
       end
     end
 

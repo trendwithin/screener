@@ -8,7 +8,7 @@ module Barchart
     end
 
     def pager(url, html_tag)
-      @mechanize.get("#{url}").search("#{html_tag}")
+      @mechanize.get(url).search(html_tag)
     end
 
     def one_month_high(page)
