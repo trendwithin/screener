@@ -82,5 +82,19 @@ module Barchart
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 36, twelve_month_low.to_i
     end
+
+    def test_returned_page_for_ytd_month_high
+      ytd_month_high = @agent.ytd_month_high(@page)
+      data_point = '374'
+      assert_equal data_point, @agent.data_conversion(data_point)
+      assert_equal 374, ytd_month_high.to_i
+    end
+
+    def test_returned_page_for_ytd_month_low
+      ytd_month_low = @agent.ytd_month_low(@page)
+      data_point = '52'
+      assert_equal data_point, @agent.data_conversion(data_point)
+      assert_equal 52, ytd_month_low.to_i
+    end
   end
 end
