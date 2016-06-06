@@ -32,10 +32,7 @@ ActiveRecord::Schema.define(version: 20160604222534) do
     t.datetime "updated_at",        null: false
   end
 
-  create_table "testings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "daily_high_lows", ["saved_on"], name: "index_daily_high_lows_on_saved_on", unique: true, using: :btree
 
   create_table "zacks", force: :cascade do |t|
     t.string   "symbol",           null: false

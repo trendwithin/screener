@@ -11,9 +11,10 @@ class CreateDailyHighLows < ActiveRecord::Migration
       t.integer :twelve_month_low, null: false
       t.integer :ytd_high, null: false
       t.integer :ytd_low, null: false
-      t.datetime :saved_on, null: false, unique:true
+      t.datetime :saved_on, null: false
 
       t.timestamps null: false
     end
+    add_index :daily_high_lows, :saved_on, unique: true
   end
 end
