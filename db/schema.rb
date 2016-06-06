@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601024913) do
+ActiveRecord::Schema.define(version: 20160604222534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_high_lows", force: :cascade do |t|
+    t.integer  "one_month_high",    null: false
+    t.integer  "one_month_low",     null: false
+    t.integer  "three_month_high",  null: false
+    t.integer  "three_month_low",   null: false
+    t.integer  "six_month_high",    null: false
+    t.integer  "six_month_low",     null: false
+    t.integer  "twelve_month_high", null: false
+    t.integer  "twelve_month_low",  null: false
+    t.integer  "ytd_high",          null: false
+    t.integer  "ytd_low",           null: false
+    t.datetime "saved_on",          null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "testings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "zacks", force: :cascade do |t|
     t.string   "symbol",           null: false

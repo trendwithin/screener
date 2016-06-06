@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   one_month_high: MyString
+#   one_month_low: MyString
+#   three_month_high: MyString
+#   three_month_low: MyString
+#   six_month_high: MyString
+#   six_month_low: MyString
+#   twelve_month_high: MyString
+#   twelve_month_low: MyString
+#   ytd_high: MyString
+#   ytd_low: MyString
+#   saved_on: MyString
+#
+# two:
+#   one_month_high: MyString
+#   one_month_low: MyString
+#   three_month_high: MyString
+#   three_month_low: MyString
+#   six_month_high: MyString
+#   six_month_low: MyString
+#   twelve_month_high: MyString
+#   twelve_month_low: MyString
+#   ytd_high: MyString
+#   ytd_low: MyString
+#   saved_on: MyString
