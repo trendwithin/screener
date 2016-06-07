@@ -64,5 +64,9 @@ module Barchart
     def data_conversion(data)
       data =~ /^\d+$/ ? data : '0'
     end
+
+    def high_low_data_insertion(data_hash)
+      ::DailyHighLow.create!(data_hash)
+    end
   end
 end
