@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604222534) do
+ActiveRecord::Schema.define(version: 20160607172025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "all_time_highs", force: :cascade do |t|
+    t.string   "symbol",     null: false
+    t.datetime "saved_on",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "all_time_highs", ["symbol", "saved_on"], name: "index_all_time_highs_on_symbol_and_saved_on", unique: true, using: :btree
 
   create_table "daily_high_lows", force: :cascade do |t|
     t.integer  "one_month_high",    null: false
