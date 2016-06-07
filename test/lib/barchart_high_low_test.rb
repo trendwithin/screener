@@ -96,5 +96,17 @@ module Barchart
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 52, ytd_month_low.to_i
     end
+
+    def test_record_creation
+      count = DailyHighLow.count
+      record = { one_month_high: 300, one_month_low: 100,
+                 three_month_high: 350, three_month_low: 150,
+                 six_month_high: 250, six_month_low: 75,
+                 twelve_month_high: 100, twelve_month_low: 76,
+                 ytd_high: 60, ytd_low: 30, saved_on: Time.now }
+
+     @agent.high_low_data_insertion(record)
+     assert_equal DailyHighLow.count, count + 1
+    end
   end
 end
