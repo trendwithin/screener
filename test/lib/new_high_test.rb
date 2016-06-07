@@ -14,8 +14,14 @@ module Barchart
 
     def test_return_new_high_symbols
       total_symbols = @agent.extract_tickers(@page)
-      byebug
       assert_equal 100, total_symbols.count
+    end
+
+    def test_insertion_of_symbols
+      total_symbols = @page[6].to_s.scan(/[A-Z]+,[^a-z]+[A-Z]/)
+      tickers = total_symbols[0].split(',')
+      @agent.insert_new_highs(tickers)
+      assert_equal 100, ::NewHigh.all.count
     end
   end
 end

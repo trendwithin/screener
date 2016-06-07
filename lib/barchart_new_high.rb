@@ -16,8 +16,8 @@ module Barchart
       tickers = total_symbols[0].split(',')
     end
 
-    def insert_new_highs
-      
+    def insert_new_highs(tickers)
+      tickers.each { |t| ::NewHigh.create!(symbol: t, saved_on: Time.now) }
     end
   end
 end
