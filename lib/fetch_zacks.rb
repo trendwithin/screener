@@ -9,7 +9,7 @@ module FetchZacks
 
     def fetch_xls_file(url)
       @mechanize.pluggable_parser.default = Mechanize::Download
-      @mechanize.get(url).save('lib/zacks_downloads/todays_earnings.xls')
+      @mechanize.get(url).save!('lib/zacks_downloads/todays_earnings.xls')
     end
 
     def read_file
@@ -33,7 +33,7 @@ module FetchZacks
       CSV.foreach('lib/zacks_downloads/todays_earnings.xls', col_sep: "\t", headers: true, header_converters: clean_headers) do |row|
         hash = row.to_hash
         hash.delete(nil)
-        Zack.create!(hash)
+        ::Zack.create!(hash)
       end
     end
   end
