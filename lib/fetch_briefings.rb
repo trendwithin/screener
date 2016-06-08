@@ -15,20 +15,16 @@ module Briefings
     def todays_date_conversion
       month = Date::MONTHNAMES[Date.today.month]
       day = Date.today.day
-
-      if day < 10
-        day = "0#{day}"
-      end
+      day = "0#{day}" if day < 10
       "#{month} #{day}"
     end
 
     def parse_current_date_data(page)
-      todays_date = todays_date_conversion
-      todays_date = 'June 02' if Rails.env.test?
+      Rails.env.test? ? todays_date = 'June 02' : todays_date = todays_date_conversion
       found_node = nil
-      page.each do |node, index|
+      page.each do |node|
         node = node.to_s
-        if node.include?("#{todays_date}")
+        if node.include?(todays_date.to_s)
           found_node = node
           break
         end

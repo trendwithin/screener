@@ -14,7 +14,7 @@ module Briefings
 
     def test_page_returns_current_date_data
       # match(//) cassette dependent
-      @page.each do |node, index|
+      @page.each do |node|
         string = node.to_s
         if string.include?('June 02')
           @found = node
