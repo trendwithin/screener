@@ -25,7 +25,35 @@ module Briefings
 
     def test_parse_current_data
       node = @agent.parse_current_date_data(@page)
-      assert_equal true, node.include?('June 02')
+      assert_equal true, node.to_s.include?('June 02')
+    end
+
+    def test_extraction_parse_selector
+      node = @agent.parse_current_date_data(@page)
+      extracted_data = @agent.parse_selector(node)
+      assert_equal Array, extracted_data.class
+    end
+
+    def test_format_data_from_selector
+      node = @agent.parse_current_date_data(@page)
+      extracted_data = @agent.parse_selector(node)
+      formatted = @agent.format_parsed_selector(extracted_data)
+      formatted.each do |elem|
+        assert_equal 9, elem.size
+      end
+    end
+
+    def test_results_data_matches_expectation
+      node = @agent.parse_current_date_data(@page)
+      extracted_data = @agent.parse_selector(node)
+      formatted = @agent.format_parsed_selector(extracted_data)
+      formatted.each do |elem|
+        assert true, elem[1].match(/[A-Z a-z+]/)
+        assert true, elem[2].match(/[^A-Z+$]/)
+        assert true, elem[3].is_a?(Float)
+        assert true, elem[5].is_a?(Float)
+        assert true, elem[6].is_a?(Float)
+      end
     end
   end
 end

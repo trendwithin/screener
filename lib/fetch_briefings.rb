@@ -23,13 +23,25 @@ module Briefings
       Rails.env.test? ? todays_date = 'June 02' : todays_date = todays_date_conversion
       found_node = nil
       page.each do |node|
-        node = node.to_s
-        if node.include?(todays_date.to_s)
+        find_todays_data = node.to_s
+        if find_todays_data.include?(todays_date.to_s)
           found_node = node
           break
         end
       end
       found_node
+    end
+
+    def parse_selector(data)
+      rd = data.css('td').select { |row| row['class'] == 'rD' }
+      ld = data.css('td').select { |row| row['class'] == 'LD' }
+      rd.concat(ld)
+    end
+
+    def format_parsed_selector(data)
+      data.map! { |item| item.text }
+      data.map! { |item| item.split.join(' ') }
+      data.each_slice(9).to_a
     end
   end
 end
