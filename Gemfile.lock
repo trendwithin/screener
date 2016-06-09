@@ -52,6 +52,7 @@ GEM
     concurrent-ruby (1.0.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
@@ -173,6 +174,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  database_cleaner (~> 1.5, >= 1.5.3)
   jbuilder (~> 2.0)
   jquery-rails
   mechanize (~> 2.7, >= 2.7.4)

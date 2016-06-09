@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'support/database_cleaner'
 require_relative '../../lib/fetch_briefings'
 
 module Briefings

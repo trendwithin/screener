@@ -47,8 +47,8 @@ module Briefings
     def insert_briefings_data(data)
       raise 'Parsed Briefing Dom Returned Empty' if data.blank?
       data.each do |elem|
-        BriefingsEarning.create!(symbol: elem[1], earnings: elem[2], expectation: elem[3],
-                         year_ago_earnings: elem[5], revenue: elem[6],
+        BriefingsEarning.create!(symbol: elem[2], earnings: elem[3], expectation: elem[5],
+                         year_ago_earnings: elem[6], revenue: elem[8],
                          saved_on: Time.now ) if self.valid?(elem)
       end
     end
