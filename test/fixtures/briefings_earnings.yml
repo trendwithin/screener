@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   symbol: MyString
+#   earnings: 1.5
+#   expectation: 1.5
+#   year_ago_earnings: 1.5
+#   revenue: MyString
+#
+# two:
+#   symbol: MyString
+#   earnings: 1.5
+#   expectation: 1.5
+#   year_ago_earnings: 1.5
+#   revenue: MyString

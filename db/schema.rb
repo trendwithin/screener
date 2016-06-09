@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607192921) do
+ActiveRecord::Schema.define(version: 20160609184453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(version: 20160607192921) do
   end
 
   add_index "all_time_highs", ["symbol", "saved_on"], name: "index_all_time_highs_on_symbol_and_saved_on", unique: true, using: :btree
+
+  create_table "briefings_earnings", force: :cascade do |t|
+    t.string   "symbol",            null: false
+    t.float    "earnings",          null: false
+    t.float    "expectation"
+    t.float    "year_ago_earnings"
+    t.string   "revenue"
+    t.datetime "saved_on",          null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "briefings_earnings", ["symbol", "saved_on"], name: "index_briefings_earnings_on_symbol_and_saved_on", unique: true, using: :btree
 
   create_table "daily_high_lows", force: :cascade do |t|
     t.integer  "one_month_high",    null: false
