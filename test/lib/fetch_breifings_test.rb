@@ -55,5 +55,27 @@ module Briefings
         assert true, elem[6].is_a?(Float)
       end
     end
+
+    def test_insertion_raises_error_if_array_empty
+      array = []
+      assert_raises('Parsed Briefing Dom Returned Empty') { @agent.insert_briefings_data(array) }
+    end
+
+    def test_insertion_of_elements
+      count = BriefingsEarning.all.count
+      node = @agent.parse_current_date_data(@page)
+      extracted_data = @agent.parse_selector(node)
+      formatted = @agent.format_parsed_selector(extracted_data)
+      @agent.insert_briefings_data(formatted)
+      assert_equal 8, BriefingsEarning.all.count + count
+    end
+
+    def test_element_without_earnings_does_not_insert
+      count = BriefingsEarning.all.count
+      array = [["", "American Woodmark", "AMWD", "0.86", "a", "0.87", "0.68", "", "16.4%"],
+              ["", "Conn's", "CONN", "", "", "0.12", "0.44", "", "6.6%"]]
+      @agent.insert_briefings_data(array)
+      assert_equal 1 + count, BriefingsEarning.all.count
+    end
   end
 end

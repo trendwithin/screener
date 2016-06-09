@@ -43,5 +43,18 @@ module Briefings
       data.map! { |item| item.split.join(' ') }
       data.each_slice(9).to_a
     end
+
+    def insert_briefings_data(data)
+      raise 'Parsed Briefing Dom Returned Empty' if data.blank?
+      data.each do |elem|
+        BriefingsEarning.create!(symbol: elem[1], earnings: elem[2], expectation: elem[3],
+                         year_ago_earnings: elem[5], revenue: elem[6],
+                         saved_on: Time.now ) if self.valid?(elem)
+      end
+    end
+
+    def valid?(elem)
+      true unless elem[3].blank? || elem[3].empty?
+    end
   end
 end
