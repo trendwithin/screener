@@ -28,70 +28,70 @@ module Barchart
 
     # current expected data from cassette 819, 271, 476, 103, 284, 50, 140, 36, 374, 52
     def test_returned_page_for_one_month_high
-      one_month_high = @agent.one_month_high(@page)
+      one_month_high = @agent.extract_high_low(@page, 2, 2)
       data_point = '819'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 819, one_month_high.to_i
     end
 
     def test_returned_page_for_one_month_low
-      one_month_low = @agent.one_month_low(@page)
+      one_month_low = @agent.extract_high_low(@page, 3, 2)
       data_point = '271'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 271, one_month_low.to_i
     end
 
     def test_returned_page_for_three_month_high
-      three_month_high = @agent.three_month_high(@page)
+      three_month_high = @agent.extract_high_low(@page, 4, 2)
       data_point = '476'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 476, three_month_high.to_i
     end
 
     def test_returned_page_for_three_month_low
-      three_month_low = @agent.three_month_low(@page)
+      three_month_low = @agent.extract_high_low(@page, 5, 2)
       data_point = '103'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 103, three_month_low.to_i
     end
 
     def test_returned_page_for_six_month_high
-      six_month_high = @agent.six_month_high(@page)
+      six_month_high = @agent.extract_high_low(@page, 6, 2)
       data_point = '284'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 284, six_month_high.to_i
     end
 
     def test_returned_page_for_six_month_low
-      six_month_low = @agent.six_month_low(@page)
+      six_month_low = @agent.extract_high_low(@page, 7, 2)
       data_point = '50'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 50, six_month_low.to_i
     end
 
     def test_returned_page_for_twelve_month_high
-      twelve_month_high = @agent.twelve_month_high(@page)
+      twelve_month_high = @agent.extract_high_low(@page, 8, 2)
       data_point = '140'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 140, twelve_month_high.to_i
     end
 
     def test_returned_page_for_twelve_month_low
-      twelve_month_low = @agent.twelve_month_low(@page)
+      twelve_month_low = @agent.extract_high_low(@page, 9, 2)
       data_point = '36'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 36, twelve_month_low.to_i
     end
 
     def test_returned_page_for_ytd_month_high
-      ytd_month_high = @agent.ytd_month_high(@page)
+      ytd_month_high = @agent.extract_high_low(@page, 10, 2)
       data_point = '374'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 374, ytd_month_high.to_i
     end
 
     def test_returned_page_for_ytd_month_low
-      ytd_month_low = @agent.ytd_month_low(@page)
+      ytd_month_low = @agent.extract_high_low(@page, 11, 2)
       data_point = '52'
       assert_equal data_point, @agent.data_conversion(data_point)
       assert_equal 52, ytd_month_low.to_i
