@@ -17,3 +17,6 @@
 
 # Ignore downloaded files
 /lib/zacks_downloads
+
+# Ignore seed .csv data
+db/seed_data/*
