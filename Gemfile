@@ -17,6 +17,10 @@ group :development, :test do
   gem 'webmock', '~> 2.0', '>= 2.0.3'
 end
 
+group :test do
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
+end
+
 group :development do
   gem 'spring'
   gem 'web-console', '~> 2.0'
