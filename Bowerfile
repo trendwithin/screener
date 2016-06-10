@@ -1,0 +1,2 @@
+asset 'jquery', '2.2.4'
+asset 'bootstrap-sass-official'
