@@ -1,5 +1,6 @@
 require 'test_helper'
 require 'support/database_cleaner'
+require 'support/fetch_briefings_support'
 require_relative '../../lib/fetch_briefings'
 
 module Briefings
@@ -36,18 +37,15 @@ module Briefings
     end
 
     def test_format_data_from_selector
-      node = @agent.parse_current_date_data(@page)
-      extracted_data = @agent.parse_selector(node)
-      formatted = @agent.format_parsed_selector(extracted_data)
+      formatted = formatted_data(@agent, @page)
       formatted.each do |elem|
         assert_equal 9, elem.size
       end
     end
 
     def test_results_data_matches_expectation
-      node = @agent.parse_current_date_data(@page)
-      extracted_data = @agent.parse_selector(node)
-      formatted = @agent.format_parsed_selector(extracted_data)
+      formatted = formatted_data(@agent, @page)
+
       formatted.each do |elem|
         assert true, elem[1].match(/[A-Z a-z+]/)
         assert true, elem[2].match(/[^A-Z+$]/)
@@ -64,9 +62,7 @@ module Briefings
 
     def test_insertion_of_elements
       count = BriefingsEarning.all.count
-      node = @agent.parse_current_date_data(@page)
-      extracted_data = @agent.parse_selector(node)
-      formatted = @agent.format_parsed_selector(extracted_data)
+      formatted = formatted_data(@agent, @page)
       @agent.insert_briefings_data(formatted)
       assert_equal 8, BriefingsEarning.all.count + count
     end
