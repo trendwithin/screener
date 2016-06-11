@@ -1,0 +1,43 @@
+@import 'base/variables';
+
+.navbar {
+  width:90%;
+  margin:auto;
+  min-height:60px;
+  background: #fff;
+  color: #000;
+  margin-bottom: 30px;
+  .navbar-nav {
+  li > a{
+      color: #000;
+      font-size:20px;
+      letter-spacing: -0.5px;
+      padding-bottom: 24px;
+      padding-top:20px;
+    }
+  }
+}
+
+.navbar-brand {
+  line-height: 30px;
+}
+
+.navbar .navbar-nav > li > a:focus,  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background: $light-powder;
+  color: #000;
+}
+
+.navbar .navbar-nav > li > a:hover {
+  color: #fff;
+}
+
+.dropdown-menu > li > a {
+  background: $light-cream;
+}
+.navbar-default {
+  background-color: $light-teal;
+}
+
+.navbar-default .navbar-brand {
+  color: #000;
+}
