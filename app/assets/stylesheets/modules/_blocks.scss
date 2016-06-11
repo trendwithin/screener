@@ -1,0 +1,19 @@
+@import 'base/variables';
+
+.block {
+  padding: 5px;
+  // margin-top: 15px;
+}
+
+.block-powder {
+  @extend .block;
+  background: $light-powder;
+}
+
+.block-dust {
+  background: $light-dust;
+}
+
+.block-cream {
+  background: $light-cream;
+}

@@ -1,0 +1,8 @@
+@import 'base/variables.scss';
+
+body{
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: 1.7em;
+  color: $base-font-color;
+}
