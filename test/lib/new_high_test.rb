@@ -2,7 +2,7 @@ require 'test_helper'
 require_relative '../../lib/barchart_new_high.rb'
 
 module Barchart
-  class NewHighTest < Minitest::Test
+  class NewHighTest < ActiveSupport::TestCase
     def setup
       VCR.use_cassette('loading-barchart-new-high') do
         url = "http://www.barchart.com/stocks/high.php"

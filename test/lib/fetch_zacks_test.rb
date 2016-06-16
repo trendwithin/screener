@@ -2,7 +2,7 @@ require 'test_helper'
 require_relative '../../lib/fetch_zacks.rb'
 
 module FetchZacks
-  class ZacksParserTest < Minitest::Test
+  class ZacksParserTest < ActiveSupport::TestCase
 
     def setup
       @zacks = FetchZacks::ZacksParser.new

@@ -2,11 +2,7 @@ require 'test_helper'
 
 class DailyHighLowTest < ActiveSupport::TestCase
   def setup
-    @record = DailyHighLow.new(one_month_high: 300, one_month_low: 100,
-                               three_month_high: 350, three_month_low: 150,
-                               six_month_high: 250, six_month_low: 75,
-                               twelve_month_high: 100, twelve_month_low: 76,
-                               ytd_high: 60, ytd_low: 30, saved_on: Time.now)
+    @record = DailyHighLow.first
   end
 
   test 'db unique constraint for saved_on' do
@@ -70,4 +66,13 @@ class DailyHighLowTest < ActiveSupport::TestCase
     assert_raises('ActiveRecord::StatementInvalid') { @record.save }
   end
 
+  test 'data sample size from yml file' do
+    assert_equal 17, DailyHighLow.count
+  end
+
+  test ':today - :yesterday one_month_high values' do
+    highs = [120, 50]
+    lows = [60, 30]
+    assert_equal [60, 20], DailyHighLow.reduce_highs(highs, lows)
+  end
 end
