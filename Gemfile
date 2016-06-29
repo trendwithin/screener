@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'bower-rails', '~> 0.10.0'
+gem 'chartkick', '~> 2.0.0'
 
 group :development, :test do
   gem 'byebug'

@@ -1,5 +1,4 @@
-DatabaseCleaner.strategy = :deletion
-
+DatabaseCleaner.strategy = :transaction
 class Minitest::Test
   def setup
     DatabaseCleaner.start

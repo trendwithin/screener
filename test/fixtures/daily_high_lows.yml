@@ -1,27 +1,222 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   one_month_high: MyString
-#   one_month_low: MyString
-#   three_month_high: MyString
-#   three_month_low: MyString
-#   six_month_high: MyString
-#   six_month_low: MyString
-#   twelve_month_high: MyString
-#   twelve_month_low: MyString
-#   ytd_high: MyString
-#   ytd_low: MyString
-#   saved_on: MyString
-#
-# two:
-#   one_month_high: MyString
-#   one_month_low: MyString
-#   three_month_high: MyString
-#   three_month_low: MyString
-#   six_month_high: MyString
-#   six_month_low: MyString
-#   twelve_month_high: MyString
-#   twelve_month_low: MyString
-#   ytd_high: MyString
-#   ytd_low: MyString
-#   saved_on: MyString
+20_days_ago:
+  saved_on: "2016-05-20"
+  one_month_high: 279
+  one_month_low: 359
+  three_month_high: 202
+  three_month_low: 158
+  six_month_high: 117
+  six_month_low: 77
+  twelve_month_high: 63
+  twelve_month_low: 62
+  ytd_high: 160
+  ytd_low: 84
+
+19_days_ago:  
+  saved_on: "2016-05-23"
+  one_month_high: 350
+  one_month_low: 328
+  three_month_high: 239
+  three_month_low: 117
+  six_month_high: 146
+  six_month_low: 55
+  twelve_month_high: 68
+  twelve_month_low: 46
+  ytd_high: 185
+  ytd_low: 57
+
+18_days_ago:
+  saved_on: "2016-05-24"
+  one_month_high: 637
+  one_month_low: 254
+  three_month_high: 465
+  three_month_low: 109
+  six_month_high: 259
+  six_month_low: 59
+  twelve_month_high: 142
+  twelve_month_low: 52
+  ytd_high: 375
+  ytd_low: 62
+
+17_days_ago:
+  saved_on: "2016-05-25"
+  one_month_high: 820
+  one_month_low: 196
+  three_month_high: 600
+  three_month_low: 83
+  six_month_high: 325
+  six_month_low: 44
+  twelve_month_high: 173
+  twelve_month_low: 38
+  ytd_high: 488
+  ytd_low: 46
+
+16_days_ago:
+  saved_on: "2016-05-26"
+  one_month_high: 531
+  one_month_low: 182
+  three_month_high: 370
+  three_month_low: 100
+  six_month_high: 235
+  six_month_low: 54
+  twelve_month_high: 110
+  twelve_month_low: 13
+  ytd_high: 165
+  ytd_low: 16
+
+15_days_ago:
+  saved_on: "2016-05-27"
+  one_month_high: 627
+  one_month_low: 157
+  three_month_high: 405
+  three_month_low: 72
+  six_month_high: 255
+  six_month_low: 11
+  twelve_month_high: 10
+  twelve_month_low: 18
+  ytd_high: 100
+  ytd_low: 1
+
+14_days_ago:
+  saved_on: "2016-05-30"
+  one_month_high: 627
+  one_month_low: 157
+  three_month_high: 405
+  three_month_low: 72
+  six_month_high: 255
+  six_month_low: 11
+  twelve_month_high: 10
+  twelve_month_low: 18
+  ytd_high: 100
+  ytd_low: 1
+
+13_days_ago:
+  saved_on: "2016-05-31"
+  one_month_high: 1025
+  one_month_low: 217
+  three_month_high: 561
+  three_month_low: 77
+  six_month_high: 154
+  six_month_low: 7
+  twelve_month_high: 8
+  twelve_month_low: 5
+  ytd_high: 223
+  ytd_low: 29
+
+10_days_ago:
+  saved_on: "2016-06-01"
+  one_month_high: 819
+  one_month_low: 271
+  three_month_high: 476
+  three_month_low: 103
+  six_month_high: 284
+  six_month_low: 50
+  twelve_month_high: 140
+  twelve_month_low: 36
+  ytd_high: 374
+  ytd_low: 52
+
+9_days_ago:
+  saved_on: "2016-06-02"
+  one_month_high: 952
+  one_month_low: 166
+  three_month_high: 564
+  three_month_low: 77
+  six_month_high: 351
+  six_month_low: 11
+  twelve_month_high: 89
+  twelve_month_low: 4
+  ytd_high: 12
+  ytd_low: 4
+
+8_days_ago:
+  saved_on: "2016-06-03"
+  one_month_high: 780
+  one_month_low: 174
+  three_month_high: 466
+  three_month_low: 88
+  six_month_high: 326
+  six_month_low: 43
+  twelve_month_high: 178
+  twelve_month_low: 34
+  ytd_high: 384
+  ytd_low: 44
+
+7_days_ago:
+  saved_on: "2016-06-06"
+  one_month_high: 1371
+  one_month_low: 161
+  three_month_high: 724
+  three_month_low: 82
+  six_month_high: 501
+  six_month_low: 44
+  twelve_month_high: 216
+  twelve_month_low: 33
+  ytd_high: 589
+  ytd_low: 45
+
+6_days_ago:
+  saved_on: "2016-06-07"
+  one_month_high: 1348
+  one_month_low: 137
+  three_month_high: 733
+  three_month_low: 76
+  six_month_high: 539
+  six_month_low: 42
+  twelve_month_high: 233
+  twelve_month_low: 34
+  ytd_high: 367
+  ytd_low: 10
+
+5_days_ago:
+  saved_on: "2016-06-08"
+  one_month_high: 1409
+  one_month_low: 126
+  three_month_high: 492
+  three_month_low: 17
+  six_month_high: 24
+  six_month_low: 2
+  twelve_month_high: 212
+  twelve_month_low: 23
+  ytd_high: 556
+  ytd_low: 39
+
+4_days_ago:
+  saved_on: "2016-06-09"
+  one_month_high: 706
+  one_month_low: 162
+  three_month_high: 243
+  three_month_low: 29
+  six_month_high: 14
+  six_month_low: 5
+  twelve_month_high: 147
+  twelve_month_low: 25
+  ytd_high: 157
+  ytd_low: 14
+
+yesterday:
+  saved_on: "2016-06-10"
+  one_month_high: 380
+  one_month_low: 372
+  three_month_high: 250
+  three_month_low: 182
+  six_month_high: 213
+  six_month_low: 76
+  twelve_month_high: 141
+  twelve_month_low: 60
+  ytd_high: 219
+  ytd_low: 80
+
+today:
+  saved_on: "2016-06-13"
+  one_month_high: 336
+  one_month_low: 628
+  three_month_high: 211
+  three_month_low: 278
+  six_month_high: 103
+  six_month_low: 9
+  twelve_month_high: 62
+  twelve_month_low: 13
+  ytd_high: 42
+  ytd_low: 45

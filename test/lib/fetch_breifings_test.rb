@@ -1,11 +1,11 @@
 require 'test_helper'
-require 'support/database_cleaner'
 require 'support/fetch_briefings_support'
 require_relative '../../lib/fetch_briefings'
 
 module Briefings
-  class EarningsTest < Minitest::Test
+  class EarningsTest < ActiveSupport::TestCase
     def setup
+      @count = BriefingsEarning.all.count
       VCR.use_cassette('loading-briefings-earnings') do
         url = 'http://hosting.briefing.com/cschwab/Calendars/EarningsCalendar5Weeks.htm'
         html_tag = ".//table[@width='100%']"
@@ -61,10 +61,9 @@ module Briefings
     end
 
     def test_insertion_of_elements
-      count = BriefingsEarning.all.count
       formatted = formatted_data(@agent, @page)
       @agent.insert_briefings_data(formatted)
-      assert_equal 8, BriefingsEarning.all.count + count
+      assert_equal 8, BriefingsEarning.all.count + @count
     end
 
     def test_element_without_earnings_does_not_insert
@@ -72,7 +71,7 @@ module Briefings
       array = [["", "American Woodmark", "AMWD", "0.86", "a", "0.87", "0.68", "", "16.4%"],
               ["", "Conn's", "CONN", "", "", "0.12", "0.44", "", "6.6%"]]
       @agent.insert_briefings_data(array)
-      assert_equal 1 + count, BriefingsEarning.all.count
+      assert_equal 1 + @count, BriefingsEarning.all.count
     end
   end
 end

@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require 'bootstrap-sass-official'
 //= require turbolinks
+//= require highcharts
+//= require chartkick
 //= require_tree .
