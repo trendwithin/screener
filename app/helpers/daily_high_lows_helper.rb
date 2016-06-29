@@ -1,7 +1,6 @@
 module DailyHighLowsHelper
 
   def high_low_chart
-    # results = DailyHighLow.diff
     diff_data = []
     @daily_difference.columns.each_with_index do |category_name, index|
       category_data = {}
