@@ -1,8 +1,9 @@
 require 'test_helper'
+require 'support/fetch_briefings_support'
 require_relative '../../lib/barchart_all_time_high.rb'
 
 module Barchart
-  class AllTimeHighTest < Minitest::Test
+    class AllTimeHighTest < ActiveSupport::TestCase
     def setup
       VCR.use_cassette('loading-barchart-all-time-high') do
         url = 'http://www.barchart.com/stocks/athigh.php'
