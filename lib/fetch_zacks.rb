@@ -5,6 +5,7 @@ module FetchZacks
   class ZacksParser
     def initialize
       @mechanize = Mechanize.new
+      @file = 'lib/zacks_downloads/todays_earnings.xls'
     end
 
     def fetch_xls_file(url)
@@ -21,6 +22,25 @@ module FetchZacks
         end
       end
       data_collection
+    end
+
+    def file_size
+      raise 'File Not Found' unless File.exist?(@file)
+      File.size(@file)
+    end
+
+    def verify_file_size(file_size)
+      flag = false
+      3.times do
+        break if flag = file_size == File.size(@file)
+        sleep 2
+        file_size = File.size(@file)
+      end
+      flag
+    end
+
+    def verify_file_creation_time?
+      Time.now.to_date == File.ctime(@file).to_date
     end
 
     def insert_zacks_data
