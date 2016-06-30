@@ -27,7 +27,7 @@ module Zacks
 
     def test_verify_file_date
       # File Testing Date 2016-06-29
-      test_file_created = Time.local(2016, 6, 29, 12, 0, 0)
+      test_file_created = Time.local(2016, 6, 30, 12, 0, 0)
       Timecop.freeze(test_file_created) do
         file_created_on = File.ctime('lib/zacks_downloads/todays_earnings.xls')
         assert_equal true, @zacks.verify_file_creation_time?
@@ -35,7 +35,7 @@ module Zacks
     end
 
     def test_verify_date_when_file_date_different
-      test_file_created = Time.local(2016, 6, 29, 12, 0, 0)
+      test_file_created = Time.local(2016, 6, 30, 12, 0, 0)
       Timecop.freeze(test_file_created + 1.day) do
         file_created_on = File.ctime('lib/zacks_downloads/todays_earnings.xls')
         assert_equal false, @zacks.verify_file_creation_time?
