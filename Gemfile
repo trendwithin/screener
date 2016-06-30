@@ -17,6 +17,7 @@ group :development, :test do
   gem 'byebug'
   gem 'vcr', '~> 3.0', '>= 3.0.3'
   gem 'webmock', '~> 2.0', '>= 2.0.3'
+  gem 'timecop', '~> 0.8.1'
 end
 
 group :test do
