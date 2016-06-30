@@ -1,5 +1,6 @@
 require 'test_helper'
 require_relative '../../lib/fetch_zacks.rb'
+
 module Zacks
   class ZackFileDownloadTest < ActiveSupport::TestCase
     def setup
@@ -13,6 +14,7 @@ module Zacks
 
     def test_200_status_code
       assert_equal "200", @response.code
+      assert_equal '200', @zacks.mechanize.page.code
     end
 
     def test_file_size
@@ -26,7 +28,7 @@ module Zacks
     end
 
     def test_verify_file_date
-      # File Testing Date 2016-06-29
+      # File Testing Date 2016-06-30
       test_file_created = Time.local(2016, 6, 30, 12, 0, 0)
       Timecop.freeze(test_file_created) do
         file_created_on = File.ctime('lib/zacks_downloads/todays_earnings.xls')
