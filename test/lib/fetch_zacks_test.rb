@@ -19,7 +19,7 @@ module FetchZacks
     def test_file_read_returns_array_of_data
       data = @zacks.read_file
       assert_equal Array, data.class
-      assert_equal 28, data.size
+      assert_equal 31, data.size
     end
 
     def test_subarrays_of_valid_length
@@ -44,8 +44,8 @@ module FetchZacks
       data = @zacks.read_file.count - 1
       @zacks.insert_zacks_data
       assert_equal current_data + data, Zack.all.count
-      record = Zack.find_by(symbol: 'VRA')
-      assert_equal 'VRA', record[:symbol]
+      record = Zack.find_by(symbol: 'AEMD')
+      assert_equal 'AEMD', record[:symbol]
     end
   end
 end
