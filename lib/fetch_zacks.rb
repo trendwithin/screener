@@ -3,14 +3,24 @@ require 'csv'
 
 module FetchZacks
   class ZacksParser
+    attr_reader :mechanize
     def initialize
       @mechanize = Mechanize.new
+      @mechanize.pluggable_parser.default = Mechanize::Download
       @file = 'lib/zacks_downloads/todays_earnings.xls'
     end
 
-    def fetch_xls_file(url)
-      @mechanize.pluggable_parser.default = Mechanize::Download
+    def fetch_xls_file(url, tries: 3)
+      # RubyTapas EP 257
       @mechanize.get(url).save!('lib/zacks_downloads/todays_earnings.xls')
+      rescue => e
+        Rails::logger.error "There was an Error Processing Zacks Download: #{e}"
+        tries -= 1
+        if tries > 0
+          retry
+        else
+          raise e
+        end
     end
 
     def read_file

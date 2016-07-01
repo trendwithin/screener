@@ -9,8 +9,13 @@ module Barchart
         url = 'http://www.barchart.com/stocks/athigh.php'
         html_tag = 'input'
         @agent = Barchart::AllTimeHigh.new
-        @page = @agent.pager(url, html_tag)
+        @agent.paging(url)
+        @page = @agent.html_tagging(html_tag)
       end
+    end
+
+    def test_200_status_code
+      assert_equal '200', @agent.mechanize.page.code
     end
 
     def test_return_all_time_high_symbols
