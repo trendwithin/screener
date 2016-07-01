@@ -31,7 +31,7 @@ module Zacks
     end
 
     def test_verify_file_date
-      # File Testing Date 2016-06-30
+      # File Testing Date 2016-07-01
       test_file_created = Time.local(2016, 7, 01, 12, 0, 0)
       Timecop.freeze(test_file_created) do
         file_created_on = File.ctime('lib/zacks_downloads/todays_earnings.xls')
