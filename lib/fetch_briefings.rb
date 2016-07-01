@@ -8,8 +8,20 @@ module Briefings
       @mechanize.user_agent = 'Mac Safari'
     end
 
-    def pager(url, html_tag)
-      @mechanize.get(url).search(html_tag)
+    def paging(url, tries: 3)
+      @mechanize.get(url)
+      rescue => e
+        Rails::logger.error "There was an Error Processing New High Lows Download: #{e}"
+        tries -= 1
+        if tries > 0
+          retry
+        else
+          raise e
+        end
+    end
+
+    def html_tagging(html_tag)
+      @mechanize.page.search(html_tag)
     end
 
     def todays_date_conversion
@@ -20,7 +32,7 @@ module Briefings
     end
 
     def parse_current_date_data(page)
-      Rails.env.test? ? todays_date = 'June 02' : todays_date = todays_date_conversion
+      todays_date = todays_date_conversion
       found_node = nil
       page.each do |node|
         find_todays_data = node.to_s
