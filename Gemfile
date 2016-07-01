@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
@@ -12,6 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'bower-rails', '~> 0.10.0'
 gem 'chartkick', '~> 2.0.0'
+gem 'puma', '~> 3.3'
 
 group :development, :test do
   gem 'byebug'
@@ -27,4 +29,8 @@ end
 group :development do
   gem 'spring'
   gem 'web-console', '~> 2.0'
+end
+
+group :production do
+  gem 'rails_12factor', '0.0.2'
 end
