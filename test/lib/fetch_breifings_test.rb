@@ -9,8 +9,12 @@ module Briefings
       VCR.use_cassette('loading-briefings-earnings') do
         url = 'http://hosting.briefing.com/cschwab/Calendars/EarningsCalendar5Weeks.htm'
         html_tag = ".//table[@width='100%']"
-        @agent = Briefings::Earnings.new
-        @page = @agent.pager(url, html_tag)
+        local_time = Time.local(2016, 6, 2, 12, 0, 0)
+        Timecop.freeze(local_time) do
+          @agent = Briefings::Earnings.new
+          @agent.paging(url)
+          @page = @agent.html_tagging(html_tag)
+        end
       end
     end
 
@@ -26,32 +30,44 @@ module Briefings
     end
 
     def test_parse_current_data
-      node = @agent.parse_current_date_data(@page)
-      assert_equal true, node.to_s.include?('June 02')
+      local_time = Time.local(2016, 6, 2, 12, 0, 0)
+      Timecop.freeze(local_time) do
+        node = @agent.parse_current_date_data(@page)
+        assert_equal true, node.to_s.include?('June 02')
+      end
     end
 
     def test_extraction_parse_selector
-      node = @agent.parse_current_date_data(@page)
-      extracted_data = @agent.parse_selector(node)
-      assert_equal Array, extracted_data.class
+      local_time = Time.local(2016, 6, 2, 12, 0, 0)
+      Timecop.freeze(local_time) do
+        node = @agent.parse_current_date_data(@page)
+        extracted_data = @agent.parse_selector(node)
+        assert_equal Array, extracted_data.class
+      end
     end
 
     def test_format_data_from_selector
-      formatted = formatted_data(@agent, @page)
-      formatted.each do |elem|
-        assert_equal 9, elem.size
+      local_time = Time.local(2016, 6, 2, 12, 0, 0)
+      Timecop.freeze(local_time) do
+        formatted = formatted_data(@agent, @page)
+        formatted.each do |elem|
+          assert_equal 9, elem.size
+        end
       end
     end
 
     def test_results_data_matches_expectation
-      formatted = formatted_data(@agent, @page)
+      local_time = Time.local(2016, 6, 2, 12, 0, 0)
+      Timecop.freeze(local_time) do
+        formatted = formatted_data(@agent, @page)
 
-      formatted.each do |elem|
-        assert true, elem[1].match(/[A-Z a-z+]/)
-        assert true, elem[2].match(/[^A-Z+$]/)
-        assert true, elem[3].is_a?(Float)
-        assert true, elem[5].is_a?(Float)
-        assert true, elem[6].is_a?(Float)
+        formatted.each do |elem|
+          assert true, elem[1].match(/[A-Z a-z+]/)
+          assert true, elem[2].match(/[^A-Z+$]/)
+          assert true, elem[3].is_a?(Float)
+          assert true, elem[5].is_a?(Float)
+          assert true, elem[6].is_a?(Float)
+        end
       end
     end
 
@@ -61,9 +77,12 @@ module Briefings
     end
 
     def test_insertion_of_elements
-      formatted = formatted_data(@agent, @page)
-      @agent.insert_briefings_data(formatted)
-      assert_equal 8, BriefingsEarning.all.count + @count
+      local_time = Time.local(2016, 6, 2, 12, 0, 0)
+      Timecop.freeze(local_time) do
+        formatted = formatted_data(@agent, @page)
+        @agent.insert_briefings_data(formatted)
+        assert_equal 8, BriefingsEarning.all.count + @count
+      end
     end
 
     def test_element_without_earnings_does_not_insert

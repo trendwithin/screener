@@ -7,8 +7,11 @@ module Zacks
       @zacks = FetchZacks::ZacksParser.new
       VCR.use_cassette('download-zacks-file') do
         url = 'https://www.zacks.com/research/earnings/earning_export.php'
-        @response = Net::HTTP.get_response(URI(url))
-        @zacks.fetch_xls_file(url)
+        test_file_created = Time.local(2016, 7, 01, 12, 0, 0)
+        Timecop.freeze(test_file_created) do
+          @response = Net::HTTP.get_response(URI(url))
+          @zacks.fetch_xls_file(url)
+        end
       end
     end
 
@@ -28,8 +31,8 @@ module Zacks
     end
 
     def test_verify_file_date
-      # File Testing Date 2016-06-30
-      test_file_created = Time.local(2016, 6, 30, 12, 0, 0)
+      # File Testing Date 2016-07-01
+      test_file_created = Time.local(2016, 7, 01, 12, 0, 0)
       Timecop.freeze(test_file_created) do
         file_created_on = File.ctime('lib/zacks_downloads/todays_earnings.xls')
         assert_equal true, @zacks.verify_file_creation_time?
@@ -37,7 +40,7 @@ module Zacks
     end
 
     def test_verify_date_when_file_date_different
-      test_file_created = Time.local(2016, 6, 30, 12, 0, 0)
+      test_file_created = Time.local(2016, 7, 01, 12, 0, 0)
       Timecop.freeze(test_file_created + 1.day) do
         file_created_on = File.ctime('lib/zacks_downloads/todays_earnings.xls')
         assert_equal false, @zacks.verify_file_creation_time?

@@ -11,7 +11,6 @@ module Barchart
         url = "http://www.barchart.com/stocks/athigh.php"
         html_tag = 'input'
         @agent = Barchart::AllTimeHigh.new
-        @response = Net::HTTP.get_response(URI(url))
         stub_request(:paging, url).to_raise('Error').to_raise('Error').to_return(body: 'OK')
         @agent.paging(url)
       end
