@@ -8,7 +8,8 @@ module Barchart
         url = "http://www.barchart.com/stocks/high.php"
         html_tag = 'input'
         @agent = Barchart::NewHigh.new
-        @page = @agent.pager(url, html_tag)
+        @agent.paging(url)
+        @page = @agent.html_tagging(html_tag)
       end
     end
 
