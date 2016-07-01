@@ -9,7 +9,8 @@ module Barchart
         url = 'http://www.barchart.com/stocks/newhilo.php?dwm=d'
         html_tag = "div[id='divContent']"
         @agent = Barchart::HighLow.new
-        @page = @agent.pager(url, html_tag)
+        @agent.paging(url)
+        @page = @agent.html_tagging(html_tag)
       end
     end
 
