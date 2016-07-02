@@ -3,14 +3,13 @@ require 'support/fetch_briefings_support'
 require_relative '../../lib/barchart_all_time_high.rb'
 
 module Barchart
-    class AllTimeHighTest < ActiveSupport::TestCase
+  class AllTimeHighTest < ActiveSupport::TestCase
     def setup
       VCR.use_cassette('loading-barchart-all-time-high') do
         url = 'http://www.barchart.com/stocks/athigh.php'
         html_tag = 'input'
         @agent = Barchart::AllTimeHigh.new
-        @agent.paging(url)
-        @page = @agent.html_tagging(html_tag)
+        @page = @agent.paging(url,html_tag)
       end
     end
 
