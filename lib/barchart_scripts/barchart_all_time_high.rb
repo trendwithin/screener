@@ -9,6 +9,7 @@ module Barchart
     end
 
     def insert_all_time_highs(tickers)
+      byebug
       tickers.each { |t| ::AllTimeHigh.create!(symbol: t, saved_on: Time.now) }
     end
   end

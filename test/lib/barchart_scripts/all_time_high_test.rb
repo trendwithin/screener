@@ -1,6 +1,6 @@
 require 'test_helper'
 require 'support/fetch_briefings_support'
-require_relative '../../lib/barchart_all_time_high.rb'
+require_relative '../../../lib/barchart_scripts/barchart_all_time_high.rb'
 
 module Barchart
   class AllTimeHighTest < ActiveSupport::TestCase
