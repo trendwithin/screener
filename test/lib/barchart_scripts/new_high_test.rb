@@ -1,5 +1,5 @@
 require 'test_helper'
-require_relative '../../lib/barchart_new_high.rb'
+require_relative '../../../lib/barchart_scripts/barchart_new_high.rb'
 
 module Barchart
   class NewHighTest < ActiveSupport::TestCase
@@ -8,8 +8,8 @@ module Barchart
         url = "http://www.barchart.com/stocks/high.php"
         html_tag = 'input'
         @agent = Barchart::NewHigh.new
-        @agent.paging(url)
-        @page = @agent.html_tagging(html_tag)
+        @page = @agent.paging(url, html_tag)
+        # @page = @agent.html_tagging(html_tag)
       end
     end
 

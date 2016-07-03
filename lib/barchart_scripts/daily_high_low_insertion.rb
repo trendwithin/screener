@@ -1,12 +1,10 @@
-require_relative '../lib/barchart_high_low'
+require_relative 'barchart_high_low'
 
-require 'byebug'
 @new_high_lows = Barchart::HighLow.new
 url = 'http://www.barchart.com/stocks/newhilo.php?dwm=d'
 html_tag = "div[id='divContent']"
 hash = Hash.new(0)
-@new_high_lows.pager(url, html_tag)
-page = @new_high_lows.html_tagging(html_tag)
+page = @new_high_lows.paging(url, html_tag)
 
 hash[:one_month_high] = @new_high_lows.extract_high_low(page, 2, 2)
 hash[:one_month_low] = @new_high_lows.extract_high_low(page, 3, 2)
