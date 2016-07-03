@@ -1,5 +1,5 @@
 require 'test_helper'
-require_relative '../../lib/fetch_zacks.rb'
+require_relative '../../../lib/zacks_scripts/fetch_zacks.rb'
 
 module Zacks
   class ZackFileDownloadTest < ActiveSupport::TestCase
