@@ -1,6 +1,6 @@
 require 'test_helper'
 require 'support/fetch_briefings_support'
-require_relative '../../lib/fetch_briefings'
+require_relative '../../../lib/briefings_scripts/fetch_briefings'
 
 module Briefings
   class EarningsTest < ActiveSupport::TestCase
@@ -12,8 +12,7 @@ module Briefings
         local_time = Time.local(2016, 6, 2, 12, 0, 0)
         Timecop.freeze(local_time) do
           @agent = Briefings::Earnings.new
-          @agent.paging(url)
-          @page = @agent.html_tagging(html_tag)
+          @page = @agent.paging(url, html_tag)
         end
       end
     end

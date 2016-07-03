@@ -1,28 +1,8 @@
-require 'mechanize'
+require_relative '../barchart_scripts/barchart_suite'
 require 'date'
 
 module Briefings
-  class Earnings
-    def initialize
-      @mechanize = Mechanize.new
-      @mechanize.user_agent = 'Mac Safari'
-    end
-
-    def paging(url, tries: 3)
-      @mechanize.get(url)
-      rescue => e
-        Rails::logger.error "There was an Error Processing New High Lows Download: #{e}"
-        tries -= 1
-        if tries > 0
-          retry
-        else
-          raise e
-        end
-    end
-
-    def html_tagging(html_tag)
-      @mechanize.page.search(html_tag)
-    end
+  class Earnings < BarchartSuite
 
     def todays_date_conversion
       month = Date::MONTHNAMES[Date.today.month]

@@ -1,5 +1,5 @@
-require_relative '../lib/fetch_briefings'
-require 'byebug'
+require_relative 'fetch_briefings'
+
 @briefings = Briefings::Earnings.new
 url = 'http://hosting.briefing.com/cschwab/Calendars/EarningsCalendar5Weeks.htm'
 html_tag = ".//table[@width='100%']"
