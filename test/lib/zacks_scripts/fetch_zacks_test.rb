@@ -10,10 +10,13 @@ module FetchZacks
     end
 
     def test_file_downloads
-      unless File.exist?('lib/zacks_downloads/todays_earnings.xls')
-        @zacks.fetch_xls_file('https://www.zacks.com/research/earnings/earning_export.php')
+      test_file_created = Time.local(2016, 7, 03, 12, 0, 0)
+      Timecop.freeze(test_file_created) do
+        unless File.exist?('lib/zacks_downloads/todays_earnings.xls')
+          @zacks.fetch_xls_file('https://www.zacks.com/research/earnings/earning_export.php')
+        end
+        assert_equal true, File.exist?('lib/zacks_downloads/todays_earnings.xls')
       end
-      assert_equal true, File.exist?('lib/zacks_downloads/todays_earnings.xls')
     end
 
     def test_file_read_returns_array_of_data
