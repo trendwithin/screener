@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table table-striped zacks_earnings">
+        <tr>
+          <th>Symbol:</th>
+          <th>Company </th>
+          <th>Report Time</th>
+          <th>Estimate</th>
+          <th>Reported</th>
+          <th>Surprise</th>
+        </tr>
+        <% @zacks_earnings.each do |e| %>
+          <tr>
+            <td><%= e.symbol %></td>
+            <td><%= e.company %></td>
+            <td><%= e.report_time %></td>
+            <td><%= e.estimate %></td>
+            <td><%= e.reported %></td>
+            <td><%= e.surprise %></td>
+          </tr>
+        <% end %>
+        <table>
+    </div>
+  </div>
+</div>
