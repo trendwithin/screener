@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'briefings_earnings/index'
+
   get 'zacks/index'
 
   get 'new_highs/index'

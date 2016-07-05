@@ -1,0 +1,2 @@
+module BriefingsEarningsHelper
+end
