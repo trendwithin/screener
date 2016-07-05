@@ -1,0 +1,2 @@
+module NewHighsHelper
+end
