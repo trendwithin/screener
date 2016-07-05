@@ -1,2 +1,18 @@
-<h1>AllTimeHighs#index</h1>
-<p>Find me in app/views/all_time_highs/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table table-striped all_time_highs">
+        <tr>
+          <th>Symbol:</th>
+          <th>Occurances: </th>
+        </tr>
+        <% @monthly_all_time_highs.each do |highs| %>
+          <tr>
+            <td><%= highs[0] %></td>
+            <td><%= highs[1] %></td>
+          </tr>
+        <% end %>
+        <table>
+      </div>
+    </div>
+</div>
