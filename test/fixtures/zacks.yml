@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   symbol: MyString
-#   company: MyString
-#   report_time: MyString
-#   estimate: MyString
-#   reported: MyString
-#   surprise: MyString
-#   current_price: MyString
-#   price_pct_change: MyString
-#
+aamc:
+  symbol: AAMC
+  company: ALTISOURCE ASST
+  report_time: 07:42
+  estimate: -0.50
+  reported: 20
+  surprise: 50.0
+  current_price: 18.08
+  price_pct_change: 6.54
+
 # two:
 #   symbol: MyString
 #   company: MyString
