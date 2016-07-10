@@ -1,6 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <section id="search_earnings">
+        <%= form_for zacks_path, method: :get do %>
+          <p>
+            Earnings Surprise:
+            <%= text_field_tag :query, params[:query] %>
+            <%= submit_tag 'Search', name: nil %>
+          </p>
+        <% end %>
+      </section>
       <section class='table-responsive'>
         <table class="table table-striped zacks_earnings">
           <tr>
@@ -25,19 +34,4 @@
       </section>
     </div>
   </div>
-</div>
-
-<%= form_for zacks_path, method: :get do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag 'Search', name: nil %>
-  </p>
-<% end %>
-
-<div id="zacks_earnings">
-  <% @earnings.each do |e| %>
-  <div>
-    <%= e.surprise %>
-    </div>
-  <% end %>
 </div>
