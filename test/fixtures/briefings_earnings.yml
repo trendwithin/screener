@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   symbol: MyString
-#   earnings: 1.5
-#   expectation: 1.5
-#   year_ago_earnings: 1.5
-#   revenue: MyString
-#
-# two:
-#   symbol: MyString
-#   earnings: 1.5
-#   expectation: 1.5
-#   year_ago_earnings: 1.5
-#   revenue: MyString
+surprise:
+  symbol: SURP
+  earnings: .33
+  expectation: .25
+  year_ago_earnings: .20
+  revenue: "25%"
+  saved_on: <%= Time.now %>
+
+beat:
+  symbol: BEAT
+  earnings: .50
+  expectation: .25
+  year_ago_earnings: .20
+  revenue: "20%"
+  saved_on: <%= Time.now %>

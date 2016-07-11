@@ -12,4 +12,14 @@ class BriefingsEarningTest < ActiveSupport::TestCase
     @record.save
     assert_raises('ActiveRecord::RecordNotUnique') { dup.save }
   end
+
+  def test_positive_earnings_surprise
+    records = BriefingsEarning.earnings.expectation.surprise(25)
+    assert_equal 2, records.count
+  end
+
+  def test_positive_earnings_expectation_beat_50
+    records = BriefingsEarning.earnings.expectation.surprise(50)
+    assert_equal 1, records.count
+  end
 end
