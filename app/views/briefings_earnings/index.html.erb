@@ -1,28 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <section class="table-responsive">
-        <table class="table table-striped briefings_earnings">
-           <tr>
-             <th>Symbol:</th>
-             <th>Earnings </th>
-             <th>Expectation</th>
-             <th>Year Ago Earnings</th>
-             <th>Revenue</th>
-             <th>Release Date</th>
-           </tr>
-           <% @briefings_earnings.each do |e| %>
-             <tr>
-               <td><%= e.symbol %></td>
-               <td><%= e.earnings %></td>
-               <td><%= e.expectation %></td>
-               <td><%= e.year_ago_earnings %></td>
-               <td><%= e.revenue %></td>
-               <td><%= e.saved_on.strftime("%m-%d-%Y") %></td>
-             </tr>
-           <% end %>
-        <table>
+       Usage: Earnings Expectation Beat- Search for earnings beat > value(ex: 25 for 25%,
+       50 for 50%) Report Time is in M-D-Year format.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <section id="search_earnings">
+        <%= form_for briefings_path, method: :get, remote: true do %>
+          <p>
+            Earnings Surprise:
+            <%= text_field_tag :query, params[:query] %>
+            <%= submit_tag 'Search', name: nil %>
+          </p>
+        <% end %>
       </section>
+      <div id="briefings-earnings">
+
+      </div>
     </div>
   </div>
 </div>
