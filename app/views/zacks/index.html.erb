@@ -1,8 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+       Usage: Earnings Surprise- Search for earnings surprise > value(ex: 25 for 25%,
+       50 for 50%) Report Time is in M-D-Year format.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <section id="search_earnings">
-        <%= form_for zacks_path, method: :get do %>
+        <%= form_for zacks_path, method: :get, remote: true do %>
           <p>
             Earnings Surprise:
             <%= text_field_tag :query, params[:query] %>
@@ -10,28 +16,9 @@
           </p>
         <% end %>
       </section>
-      <section class='table-responsive'>
-        <table class="table table-striped zacks_earnings">
-          <tr>
-            <th>Symbol:</th>
-            <th>Company </th>
-            <th>Report Time</th>
-            <th>Estimate</th>
-            <th>Reported</th>
-            <th>Surprise</th>
-          </tr>
-          <% @zacks_earnings.each do |e| %>
-            <tr>
-              <td><%= e.symbol %></td>
-              <td><%= e.company %></td>
-              <td><%= e.created_at.strftime("%m-%d-%Y") %></td>
-              <td><%= e.estimate %></td>
-              <td><%= e.reported %></td>
-              <td><%= e.surprise %></td>
-            </tr>
-          <% end %>
-          <table>
-      </section>
+      <div id="zacks-earnings">
+
+      </div>
     </div>
   </div>
 </div>

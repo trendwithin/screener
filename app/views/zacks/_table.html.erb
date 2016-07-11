@@ -1,0 +1,22 @@
+<section class='table-responsive'>
+  <table id="" class="table table-striped" >
+    <tr>
+      <th>Symbol:</th>
+      <th>Company </th>
+      <th>Report Time</th>
+      <th>Estimate</th>
+      <th>Reported</th>
+      <th>Surprise</th>
+    </tr>
+      <% @zacks_earnings.each do |e| %>
+        <tr>
+          <td><%= e.symbol %></td>
+          <td><%= e.company %></td>
+          <td><%= e.created_at.strftime("%m-%d-%Y") %></td>
+          <td><%= e.estimate %></td>
+          <td><%= e.reported %></td>
+          <td><%= e.surprise %></td>
+        </tr>
+      <% end %>
+    <table>
+</section>
