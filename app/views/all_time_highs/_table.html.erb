@@ -1,0 +1,12 @@
+<table class="table table-striped all_time_highs">
+  <tr>
+    <th>Symbol:</th>
+    <th>Occurances: </th>
+  </tr>
+  <% @all_time_highs.each do |highs| %>
+    <tr>
+      <td><%= highs[0] %></td>
+      <td><%= highs[1] %></td>
+    </tr>
+  <% end %>
+<table>

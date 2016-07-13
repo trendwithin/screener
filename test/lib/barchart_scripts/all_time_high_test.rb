@@ -29,7 +29,15 @@ module Barchart
       total_symbols = @page[6].to_s.scan(/[A-Z]+,[^a-z]+[A-Z]/)
       tickers = total_symbols[0].split(',')
       @agent.insert_all_time_highs(tickers)
-      assert_equal 100, ::AllTimeHigh.all.count
+      assert_equal 104, ::AllTimeHigh.all.count
+    end
+
+    def test_all_time_high_weekly_tally
+      assert_equal 2, ::AllTimeHigh.period(1.week.ago).count
+    end
+
+    def test_all_time_high_monthly_tally
+      assert_equal 2, ::AllTimeHigh.period(1.month.ago).count
     end
   end
 end
