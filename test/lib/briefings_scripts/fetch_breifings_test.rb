@@ -80,7 +80,7 @@ module Briefings
       Timecop.freeze(local_time) do
         formatted = formatted_data(@agent, @page)
         @agent.insert_briefings_data(formatted)
-        assert_equal 8, BriefingsEarning.all.count + @count
+        assert_equal 12, BriefingsEarning.all.count + @count
       end
     end
 
