@@ -3,7 +3,6 @@ class NewHighsController < ApplicationController
     if params[:query].present?
       time_period = query_time_period(params[:query])
       @new_highs = NewHigh.period(time_period).by_symbol.ordered_by
-      byebug
     else
       @new_highs = NewHigh.monthly.by_symbol.ordered_by
     end
