@@ -2,32 +2,32 @@ require 'test_helper'
 
 class NewHighTest < ActiveSupport::TestCase
   def setup
-    @ath = NewHigh.new(symbol: 'AAPL', saved_on: Time.now)
+    @nh = NewHigh.new(symbol: 'AAPL', saved_on: Time.now)
   end
 
   test 'uniqueness of symbol/saved_on' do
-    dup = @ath.dup
-    @ath.save
+    dup = @nh.dup
+    @nh.save
     assert_raises('ActiveRecord::RecordNotUnique') { dup.save }
   end
 
   test 'symbol/saved_on concurrent days' do
     count = NewHigh.all.count
-    dup = @ath.dup
+    dup = @nh.dup
     dup.saved_on = 1.day.ago
     dup.save
-    assert @ath.save
+    assert @nh.save
     assert_equal count + 2, NewHigh.all.count
   end
 
   test 'empty symbol' do
-    @ath.symbol = ''
-    assert_raises('RuntimeError') { @ath.save }
+    @nh.symbol = ''
+    assert_raises('RuntimeError') { @nh.save }
   end
 
   test 'empty saved_on' do
-    @ath.saved_on = ''
-    assert_raises('RuntimeError') { @ath.save }
+    @nh.saved_on = ''
+    assert_raises('RuntimeError') { @nh.save }
   end
 
   test 'flow with empty symbol' do

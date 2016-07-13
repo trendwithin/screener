@@ -22,7 +22,7 @@ module Barchart
       total_symbols = @page[6].to_s.scan(/[A-Z]+,[^a-z]+[A-Z]/)
       tickers = total_symbols[0].split(',')
       @agent.insert_new_highs(tickers)
-      assert_equal 100, ::NewHigh.all.count
+      assert_equal 104, ::NewHigh.all.count
     end
   end
 end
