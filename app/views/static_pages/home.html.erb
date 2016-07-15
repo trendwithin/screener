@@ -9,15 +9,49 @@
     </div>
   </div>
   <div class="row">
-    <section>
-      <div class="col-md-4 block-cream">
+    <section class="col-md-12">
+      <p>
+        Two known market anomolies are PEAD and Momentum.  Post Earnings Announcement
+        Drift is a quantified market phenomenon where stocks that beat market participants
+        expectations show a favorable post earnings drift as the new information is processed
+        which can last for weeks, months, and cumulative quarters.  Momentum is an anomoly where
+        a stocks that show strong price acculation over three, six, and twelve month periods continue
+        to outperform the general market over these time frames moving forward.
+      </p>
+      <p>
+        Market Breadth is taking the temperature of the overall market as gauged by the strength of
+        the underlying stocks.  Through determining the stregnth of the overall market one can align
+        themselves on the correct side of the order flow for their time frame with greater confidence.
+      </p>
+      <p>
+        This screening utility takes a few of these concepts in order to
+        gauge market health and curate watchlist with a
+        focus on growth stocks as indicated by accelerating
+        earnings and momentum stocks based upon accumulation of all time high
+        and new highs over mutliple time frames.  The greater the number of stocks
+        making new and all time highs the healthier the market.
+      </p>
+    </section>
+  </div>
+  <div class="row row-eq-height">
+    <section class='row-eq-height'>
+      <div class="col-md-4 block block-cream">
         <h3>High Low Breadth</h3>
+        <%= image_tag('breadth.png') %>
+        Chart showing the difference between stocks making new highs vs. new lows over
+        5 different time frames to gauge market appetitie for swing trading.
       </div>
-      <div class="col-md-4 block-cream">
+      <div class="col-md-4 block block-cream">
         <h3>Searchable Earnings</h3>
+        <%= image_tag('search_earnings.png')%>
+        Search for earnings that beat earnings expectations and previous quarter
+        earnings.
       </div>
-      <div class="col-md-4 block-cream">
+      <div class="col-md-4 block block-cream">
         <h3>All Time & 52-Week Highs</h3>
+        <%= image_tag('all_time_high.png') %>
+        Search for stocks making new highs and all time highs to curate watchlist.
+        Three time frames available. Weeky, Bi-Weekly and Monthly.
       </div>
     </section>
   </div>
