@@ -1,5 +1,14 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <section>
+        <div class="center well block-powder">
+          <h1>Search All Time Highs</h1>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-4">
       <%= button_to 'Weekly', all_time_highs_path, :method => :get, params: { query: :weekly }, remote: true, class: 'btn btn-primary' %>
     </div>
